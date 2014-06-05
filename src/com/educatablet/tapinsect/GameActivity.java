@@ -113,9 +113,10 @@ public class GameActivity extends Activity {
           @Override
           public void run() {
             textTime.setText(time + " seg.");
-            if (time > 0)
-              time -= 1;
-            else {
+            if (time > 0) {
+              time--;
+              changeInsectPosition();
+            } else {
               t.cancel();
               onFinish();
             }
@@ -132,7 +133,11 @@ public class GameActivity extends Activity {
   private void clickOnInsect() {
     score += 10;
     showScore();
+    changeInsectPosition();
 
+  }
+
+  synchronized private void changeInsectPosition() {
     Random r = new Random();
     int max = 4;
     int pos = r.nextInt(max);
@@ -175,7 +180,6 @@ public class GameActivity extends Activity {
     }
 
     buttonInsect.setLayoutParams(params);
-
   }
 
   private void showScore() {
