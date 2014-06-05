@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -15,7 +14,6 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -24,7 +22,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
@@ -47,13 +44,15 @@ public class GameActivity extends Activity {
 
   // atributos para controlar el tiempo
   private int time;
-  private static final int MAX_TIME = 10;
+  private static final int MAX_TIME = 20;
 
   // Timeout de Conexion en milisegundos
   private static final int TIMEOUT_CONNECTION = 3000;
 
   // Timeout de Socket en milisegundos
   private static final int TIMEOUT_SOCKET = 5000;
+
+  // URL del Servicio Web
   private static final String URL = "http://clients.aragmedia.com/etcsrv/services/setNewScore";
 
   // parametros de la data a enviar
@@ -159,36 +158,36 @@ public class GameActivity extends Activity {
 
     RelativeLayout.LayoutParams params = null;
     switch (pos) {
-    case CENTER:
-      params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
-          LayoutParams.WRAP_CONTENT);
-      params.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
-      params.addRule(RelativeLayout.CENTER_VERTICAL, RelativeLayout.TRUE);
-      break;
-    case TOP_LEFT:
-      params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
-          LayoutParams.WRAP_CONTENT);
-      params.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
-      params.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
-      break;
-    case TOP_RIGHT:
-      params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
-          LayoutParams.WRAP_CONTENT);
-      params.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
-      params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
-      break;
-    case BOTTOM_LEFT:
-      params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
-          LayoutParams.WRAP_CONTENT);
-      params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
-      params.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
-      break;
-    case BOTTOM_RIGHT:
-      params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
-          LayoutParams.WRAP_CONTENT);
-      params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
-      params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
-      break;
+      case CENTER:
+        params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
+            LayoutParams.WRAP_CONTENT);
+        params.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
+        params.addRule(RelativeLayout.CENTER_VERTICAL, RelativeLayout.TRUE);
+        break;
+      case TOP_LEFT:
+        params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
+            LayoutParams.WRAP_CONTENT);
+        params.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
+        params.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
+        break;
+      case TOP_RIGHT:
+        params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
+            LayoutParams.WRAP_CONTENT);
+        params.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
+        params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
+        break;
+      case BOTTOM_LEFT:
+        params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
+            LayoutParams.WRAP_CONTENT);
+        params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+        params.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE);
+        break;
+      case BOTTOM_RIGHT:
+        params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
+            LayoutParams.WRAP_CONTENT);
+        params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
+        params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
+        break;
     }
 
     buttonInsect.setLayoutParams(params);
