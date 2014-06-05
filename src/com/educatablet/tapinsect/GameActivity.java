@@ -228,6 +228,7 @@ public class GameActivity extends Activity {
     if (!isNetworkAvailable()) {
       Toast.makeText(this, "No hay conexión a Internet", Toast.LENGTH_SHORT)
           .show();
+      return;
     }
 
     new Thread(new Runnable() {
