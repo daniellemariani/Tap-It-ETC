@@ -48,6 +48,16 @@ public class GameActivity extends Activity {
   private int time;
   private static final int MAX_TIME = 20;
 
+  // posiciones del insecto
+  int position = 0;
+  private static final int CENTER = 0;
+  private static final int TOP_LEFT = 1;
+  private static final int TOP_RIGHT = 2;
+  private static final int BOTTOM_LEFT = 3;
+  private static final int BOTTOM_RIGHT = 4;
+
+  private int insectPositionSecondCounter;
+
   // Timeout de Conexion en milisegundos
   private static final int TIMEOUT_CONNECTION = 3000;
 
@@ -60,15 +70,6 @@ public class GameActivity extends Activity {
   // parametros de la data a enviar
   private static final String PARAMETER_USERNAME = "username";
   private static final String PARAMETER_SCORE = "score";
-
-  // posiciones del insecto
-  private static final int CENTER = 0;
-  private static final int TOP_LEFT = 1;
-  private static final int TOP_RIGHT = 2;
-  private static final int BOTTOM_LEFT = 3;
-  private static final int BOTTOM_RIGHT = 4;
-
-  private int insectPositionSecondCounter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -139,8 +140,6 @@ public class GameActivity extends Activity {
     t.scheduleAtFixedRate(task, 0, 1000);
   }
 
-  int position = 0;
-
   private void clickOnInsect() {
     score += 10;
     showScore();
@@ -207,6 +206,7 @@ public class GameActivity extends Activity {
     new AlertDialog.Builder(this)
         .setTitle("Final")
         .setMessage(message)
+        .setCancelable(false)
         .setPositiveButton(R.string.button_yes,
             new DialogInterface.OnClickListener() {
               public void onClick(DialogInterface dialog, int which) {
