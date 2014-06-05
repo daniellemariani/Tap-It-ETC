@@ -67,6 +67,8 @@ public class GameActivity extends Activity {
   private static final int BOTTOM_LEFT = 3;
   private static final int BOTTOM_RIGHT = 4;
 
+  private int insectPositionSecondCounter;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -97,6 +99,7 @@ public class GameActivity extends Activity {
 
   private void init() {
     score = 0;
+    insectPositionSecondCounter = 0;
     showScore();
     initTime();
   }
@@ -109,14 +112,20 @@ public class GameActivity extends Activity {
 
       @Override
       public void run() {
+
         runOnUiThread(new Runnable() {
 
           @Override
           public void run() {
             textTime.setText(time + " seg.");
+            insectPositionSecondCounter++;
             if (time > 0) {
               time--;
-              changeInsectPosition();
+
+              if (insectPositionSecondCounter >= 2) {
+                changeInsectPosition();
+              }
+
             } else {
               t.cancel();
               onFinish();
@@ -139,6 +148,7 @@ public class GameActivity extends Activity {
   }
 
   synchronized private void changeInsectPosition() {
+    insectPositionSecondCounter = 0;
     Random r = new Random();
     int max = 5;
     int pos = r.nextInt(max);
