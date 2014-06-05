@@ -156,8 +156,6 @@ public class GameActivity extends Activity {
       pos = r.nextInt(max);
     }
     position = pos;
-    
-    Log.i("POS", "-- Position: " + pos);
 
     RelativeLayout.LayoutParams params = null;
     switch (pos) {
