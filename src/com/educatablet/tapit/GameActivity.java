@@ -1,10 +1,11 @@
-package com.educatablet.tapinsect;
+package com.educatablet.tapit;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -14,6 +15,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -194,7 +196,7 @@ public class GameActivity extends Activity {
   }
 
   private void showScore() {
-    textScore.setText("Score: " + score);
+    textScore.setText(String.valueOf(score));
   }
 
   private void onFinish() {

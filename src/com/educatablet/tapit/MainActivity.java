@@ -1,4 +1,4 @@
-package com.educatablet.tapinsect;
+package com.educatablet.tapit;
 
 import android.app.Activity;
 import android.content.Intent;

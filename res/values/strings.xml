@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Tap Insect</string>
+    <string name="app_name">Tap It</string>
     <string name="hello_world">Hello world!</string>
     <string name="username_hint">Username</string>
     <string name="press_button_message">Introduce tu Username y presiona el botón para comenzar a jugar</string>
