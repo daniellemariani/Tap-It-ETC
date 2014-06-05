@@ -30,6 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:ems="10"
+        android:maxLength="20"
+        android:singleLine="true"
         android:hint="@string/username_hint" >
     </EditText>
 

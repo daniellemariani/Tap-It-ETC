@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
@@ -139,12 +140,14 @@ public class GameActivity extends Activity {
 
   synchronized private void changeInsectPosition() {
     Random r = new Random();
-    int max = 4;
+    int max = 5;
     int pos = r.nextInt(max);
     while (position == pos) {
       pos = r.nextInt(max);
     }
     position = pos;
+    
+    Log.i("POS", "-- Position: " + pos);
 
     RelativeLayout.LayoutParams params = null;
     switch (pos) {
@@ -165,6 +168,7 @@ public class GameActivity extends Activity {
           LayoutParams.WRAP_CONTENT);
       params.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
       params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE);
+      break;
     case BOTTOM_LEFT:
       params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
           LayoutParams.WRAP_CONTENT);
